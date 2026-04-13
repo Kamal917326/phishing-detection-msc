@@ -368,7 +368,7 @@ def threat_intelligence_tab():
         fig3 = go.Figure(go.Pie(labels=sectors,values=sector_pcts,marker=dict(colors=sector_colors,line=dict(color='#1e2130',width=2)),textinfo='label+percent',textfont=dict(size=8,color='white'),hole=0.42,hovertemplate='%{label}: %{value}%<extra></extra>'))
         fig3.add_annotation(text='Targets',x=0.5,y=0.5,font=dict(size=11,color='#cbd5e1'),showarrow=False)
         fig3.update_layout(**PLOT_LAYOUT,height=280)
-        st.plotly_chart(fig3,use_container_width=True,key="ti_targeted_sectors_q4")
+         st.plotly_chart(fig3,use_container_width=True,key="ti_targeted_sectors_q4")
     with c4:
         st.markdown('<div style="color:#e2e8f0;font-size:0.93rem;font-weight:600;margin-bottom:6px;">Most abused TLDs in phishing (% of phishing URLs)</div>',unsafe_allow_html=True)
         fig4 = go.Figure(go.Bar(x=tld_pcts,y=tlds,orientation='h',marker_color=tld_bar_colors,marker_line_width=0,text=[f'{p}% — {r}' for p,r in zip(tld_pcts,tld_risk)],textposition='outside',textfont=dict(size=9,color='#cbd5e1'),hovertemplate='%{y}: %{x}%<extra></extra>'))
@@ -405,7 +405,7 @@ def threat_intelligence_tab():
         fig6.update_layout(**PLOT_LAYOUT,height=250,
             yaxis=dict(gridcolor='#2d3250',ticksuffix='%',tickfont=dict(size=9),range=[0,80]),
             xaxis=dict(tickfont=dict(size=9.5)))
-        st.plotly_chart(fig6,use_container_width=True,key="ti_delivery_vectors")
+         st.plotly_chart(fig6,use_container_width=True,key="ti_delivery_vectors")
     with c8:
         st.markdown('<div style="color:#e2e8f0;font-size:0.93rem;font-weight:600;margin-bottom:6px;">Phishing site active lifespan</div>',unsafe_allow_html=True)
         fig7=go.Figure(go.Bar(x=lifespan_labels,y=lifespan_vals,marker_color=lifespan_colors,marker_line_width=0,text=[f'{v}%' for v in lifespan_vals],textposition='outside',textfont=dict(size=9.5,color='#cbd5e1'),hovertemplate='%{x}: %{y}%<extra></extra>'))
@@ -655,8 +655,7 @@ else:
         No URLs analysed yet — enter a URL above to get started
     </div>""", unsafe_allow_html=True)
 
-with tab2:
-    threat_intelligence_tab()
+
 
 # ============================================================
 # SIDEBAR
