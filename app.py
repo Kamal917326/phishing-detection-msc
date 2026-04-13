@@ -349,7 +349,7 @@ def threat_intelligence_tab():
         xaxis=dict(gridcolor='#2d3250',tickfont=dict(size=10)),
         bargap=0.35
         )
-        st.plotly_chart(fig,use_container_width=True)
+        st.plotly_chart(fig,use_container_width=True,key="ti_annual_attacks")
     with c2:
         st.markdown('<div style="color:#e2e8f0;font-size:0.93rem;font-weight:600;margin-bottom:6px;">Monthly trend 2024</div>',unsafe_allow_html=True)
         fig2 = go.Figure()
@@ -359,7 +359,7 @@ def threat_intelligence_tab():
         fig2.update_layout(**PLOT_LAYOUT,height=270,
             yaxis=dict(gridcolor='#2d3250',tickformat=',.0f',tickfont=dict(size=9)),
             xaxis=dict(gridcolor='#2d3250',tickfont=dict(size=9)))
-        st.plotly_chart(fig2,use_container_width=True)
+        st.plotly_chart(fig2,use_container_width=True,key="ti_monthly_trend_2024")
 
     # Row 2: Sectors + TLDs
     c3,c4 = st.columns([2,3])
@@ -368,14 +368,14 @@ def threat_intelligence_tab():
         fig3 = go.Figure(go.Pie(labels=sectors,values=sector_pcts,marker=dict(colors=sector_colors,line=dict(color='#1e2130',width=2)),textinfo='label+percent',textfont=dict(size=8,color='white'),hole=0.42,hovertemplate='%{label}: %{value}%<extra></extra>'))
         fig3.add_annotation(text='Targets',x=0.5,y=0.5,font=dict(size=11,color='#cbd5e1'),showarrow=False)
         fig3.update_layout(**PLOT_LAYOUT,height=280)
-        st.plotly_chart(fig3,use_container_width=True)
+        st.plotly_chart(fig3,use_container_width=True,key="ti_targeted_sectors_q4")
     with c4:
         st.markdown('<div style="color:#e2e8f0;font-size:0.93rem;font-weight:600;margin-bottom:6px;">Most abused TLDs in phishing (% of phishing URLs)</div>',unsafe_allow_html=True)
         fig4 = go.Figure(go.Bar(x=tld_pcts,y=tlds,orientation='h',marker_color=tld_bar_colors,marker_line_width=0,text=[f'{p}% — {r}' for p,r in zip(tld_pcts,tld_risk)],textposition='outside',textfont=dict(size=9,color='#cbd5e1'),hovertemplate='%{y}: %{x}%<extra></extra>'))
         fig4.update_layout(**{**PLOT_LAYOUT, "margin": dict(t=10,b=10,l=10,r=110)},height=280,
             xaxis=dict(gridcolor='#2d3250',ticksuffix='%',tickfont=dict(size=9),range=[0,50]),
             yaxis=dict(tickfont=dict(size=10)))
-        st.plotly_chart(fig4,use_container_width=True)
+        fig5.update_layout(**{**PLOT_LAYOUT, "margin": dict(t=10,b=10,l=10,r=55)},height=290,
         risk_cols=st.columns(4)
         for col,(risk,color) in zip(risk_cols,tld_colors_map.items()):
             col.markdown(f'<div style="display:flex;align-items:center;gap:5px;font-size:0.71rem;color:#94a3b8;"><div style="width:10px;height:10px;border-radius:2px;background:{color};flex-shrink:0;"></div>{risk}</div>',unsafe_allow_html=True)
@@ -389,7 +389,7 @@ def threat_intelligence_tab():
         fig5.update_layout(**{**PLOT_LAYOUT, "margin": dict(t=10,b=10,l=10,r=55)},height=290,
             xaxis=dict(gridcolor='#2d3250',ticksuffix='%',tickfont=dict(size=9),range=[0,25]),
             yaxis=dict(tickfont=dict(size=10)))
-        st.plotly_chart(fig5,use_container_width=True)
+        st.plotly_chart(fig5,use_container_width=True,key="ti_impersonated_brands")
     with c6:
         st.markdown('<div style="color:#e2e8f0;font-size:0.93rem;font-weight:600;margin-bottom:6px;">🇬🇧 UK threat landscape (NCSC 2024)</div>',unsafe_allow_html=True)
         for label,val in uk_stats.items():
@@ -405,14 +405,14 @@ def threat_intelligence_tab():
         fig6.update_layout(**PLOT_LAYOUT,height=250,
             yaxis=dict(gridcolor='#2d3250',ticksuffix='%',tickfont=dict(size=9),range=[0,80]),
             xaxis=dict(tickfont=dict(size=9.5)))
-        st.plotly_chart(fig6,use_container_width=True)
+        st.plotly_chart(fig6,use_container_width=True,key="ti_delivery_vectors")
     with c8:
         st.markdown('<div style="color:#e2e8f0;font-size:0.93rem;font-weight:600;margin-bottom:6px;">Phishing site active lifespan</div>',unsafe_allow_html=True)
         fig7=go.Figure(go.Bar(x=lifespan_labels,y=lifespan_vals,marker_color=lifespan_colors,marker_line_width=0,text=[f'{v}%' for v in lifespan_vals],textposition='outside',textfont=dict(size=9.5,color='#cbd5e1'),hovertemplate='%{x}: %{y}%<extra></extra>'))
         fig7.update_layout(**PLOT_LAYOUT,height=250,
             yaxis=dict(gridcolor='#2d3250',ticksuffix='%',tickfont=dict(size=9),range=[0,40]),
             xaxis=dict(tickfont=dict(size=9)))
-        st.plotly_chart(fig7,use_container_width=True)
+        st.plotly_chart(fig7,use_container_width=True,key="ti_site_lifespan")
         st.markdown('<div style="background:#1e2130;border-radius:8px;padding:0.65rem 0.9rem;border-left:3px solid #dc2626;font-size:0.79rem;color:#94a3b8;"><b style="color:#f87171;">Key insight:</b> 72.2% of phishing sites are active under 24 hours — validating ML-based detection over blacklists.</div>',unsafe_allow_html=True)
 
     st.markdown("<br>",unsafe_allow_html=True)
