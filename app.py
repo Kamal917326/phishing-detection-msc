@@ -343,10 +343,12 @@ def threat_intelligence_tab():
         fig.add_trace(go.Bar(x=years,y=attacks,marker_color=['#4f46e5']*5+['#dc2626'],marker_line_width=0,name='Phishing sites',hovertemplate='%{x}: %{y:,.0f}<extra></extra>'))
         fig.add_trace(go.Scatter(x=years[1:],y=yoy_change[1:],mode='lines+markers+text',name='YoY %',yaxis='y2',line=dict(color='#f59e0b',width=2),marker=dict(size=7,color='#f59e0b'),text=[f'+{v}%' for v in yoy_change[1:]],textposition='top center',textfont=dict(size=9,color='#f59e0b'),hovertemplate='%{x}: +%{y:.1f}%<extra></extra>'))
         fig.update_layout(**PLOT_LAYOUT,height=270,
-            legend=dict(orientation='h',y=-0.18,font=dict(size=10),bgcolor='rgba(0,0,0,0)'),
-            yaxis=dict(gridcolor='#2d3250',tickformat=',.0f',tickfont=dict(size=9)),
-            yaxis2=dict(overlaying='y',side='right',showgrid=False,tickfont=dict(size=9,color='#f59e0b')),
-            xaxis=dict(gridcolor='#2d3250',tickfont=dict(size=10)),bargap=0.35)
+        legend=dict(orientation='h',y=-0.18,font=dict(size=10),bgcolor='rgba(0,0,0,0)'),
+        yaxis=dict(gridcolor='#2d3250',tickformat=',.0f',tickfont=dict(size=9)),
+        yaxis2=dict(overlaying='y',side='right',showgrid=False,tickfont=dict(size=9,color='#f59e0b')),
+        xaxis=dict(gridcolor='#2d3250',tickfont=dict(size=10)),
+        bargap=0.35
+        )
         st.plotly_chart(fig,use_container_width=True)
     with c2:
         st.markdown('<div style="color:#e2e8f0;font-size:0.93rem;font-weight:600;margin-bottom:6px;">Monthly trend 2024</div>',unsafe_allow_html=True)
