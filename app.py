@@ -736,4 +736,3 @@ with st.sidebar:
     st.markdown("<br>",unsafe_allow_html=True)
     if model_loaded: st.success("✓ ML model loaded")
     else:            st.warning("⚠ Improved rule-based mode")
-
