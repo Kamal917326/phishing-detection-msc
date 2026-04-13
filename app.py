@@ -368,7 +368,7 @@ def threat_intelligence_tab():
         fig3 = go.Figure(go.Pie(labels=sectors,values=sector_pcts,marker=dict(colors=sector_colors,line=dict(color='#1e2130',width=2)),textinfo='label+percent',textfont=dict(size=8,color='white'),hole=0.42,hovertemplate='%{label}: %{value}%<extra></extra>'))
         fig3.add_annotation(text='Targets',x=0.5,y=0.5,font=dict(size=11,color='#cbd5e1'),showarrow=False)
         fig3.update_layout(**PLOT_LAYOUT,height=280)
-         st.plotly_chart(fig3,use_container_width=True,key="ti_targeted_sectors_q4")
+        st.plotly_chart(fig3,use_container_width=True,key="ti_targeted_sectors_q4")
     with c4:
         st.markdown('<div style="color:#e2e8f0;font-size:0.93rem;font-weight:600;margin-bottom:6px;">Most abused TLDs in phishing (% of phishing URLs)</div>',unsafe_allow_html=True)
         fig4 = go.Figure(go.Bar(x=tld_pcts,y=tlds,orientation='h',marker_color=tld_bar_colors,marker_line_width=0,text=[f'{p}% — {r}' for p,r in zip(tld_pcts,tld_risk)],textposition='outside',textfont=dict(size=9,color='#cbd5e1'),hovertemplate='%{y}: %{x}%<extra></extra>'))
