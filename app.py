@@ -375,7 +375,7 @@ def threat_intelligence_tab():
         fig4.update_layout(**{**PLOT_LAYOUT, "margin": dict(t=10,b=10,l=10,r=110)},height=280,
             xaxis=dict(gridcolor='#2d3250',ticksuffix='%',tickfont=dict(size=9),range=[0,50]),
             yaxis=dict(tickfont=dict(size=10)))
-        fig5.update_layout(**{**PLOT_LAYOUT, "margin": dict(t=10,b=10,l=10,r=55)},height=290,
+        st.plotly_chart(fig4,use_container_width=True,key="ti_abused_tlds")
         risk_cols=st.columns(4)
         for col,(risk,color) in zip(risk_cols,tld_colors_map.items()):
             col.markdown(f'<div style="display:flex;align-items:center;gap:5px;font-size:0.71rem;color:#94a3b8;"><div style="width:10px;height:10px;border-radius:2px;background:{color};flex-shrink:0;"></div>{risk}</div>',unsafe_allow_html=True)
