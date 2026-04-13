@@ -372,7 +372,7 @@ def threat_intelligence_tab():
     with c4:
         st.markdown('<div style="color:#e2e8f0;font-size:0.93rem;font-weight:600;margin-bottom:6px;">Most abused TLDs in phishing (% of phishing URLs)</div>',unsafe_allow_html=True)
         fig4 = go.Figure(go.Bar(x=tld_pcts,y=tlds,orientation='h',marker_color=tld_bar_colors,marker_line_width=0,text=[f'{p}% — {r}' for p,r in zip(tld_pcts,tld_risk)],textposition='outside',textfont=dict(size=9,color='#cbd5e1'),hovertemplate='%{y}: %{x}%<extra></extra>'))
-        fig4.update_layout(**PLOT_LAYOUT,height=280,margin=dict(t=10,b=10,l=10,r=110),
+        fig4.update_layout(**{**PLOT_LAYOUT, "margin": dict(t=10,b=10,l=10,r=110)},height=280,
             xaxis=dict(gridcolor='#2d3250',ticksuffix='%',tickfont=dict(size=9),range=[0,50]),
             yaxis=dict(tickfont=dict(size=10)))
         st.plotly_chart(fig4,use_container_width=True)
@@ -386,7 +386,7 @@ def threat_intelligence_tab():
         st.markdown('<div style="color:#e2e8f0;font-size:0.93rem;font-weight:600;margin-bottom:6px;">Most impersonated brands (APWG Q4 2024)</div>',unsafe_allow_html=True)
         bc=[('#dc2626' if p>15 else '#d97706' if p>8 else '#4f46e5') for p in brand_pcts]
         fig5=go.Figure(go.Bar(x=brand_pcts,y=brands,orientation='h',marker_color=bc,marker_line_width=0,text=[f'{p}%' for p in brand_pcts],textposition='outside',textfont=dict(size=9.5,color='#cbd5e1'),hovertemplate='%{y}: %{x}%<extra></extra>'))
-        fig5.update_layout(**PLOT_LAYOUT,height=290,margin=dict(t=10,b=10,l=10,r=55),
+        fig5.update_layout(**{**PLOT_LAYOUT, "margin": dict(t=10,b=10,l=10,r=55)},height=290,
             xaxis=dict(gridcolor='#2d3250',ticksuffix='%',tickfont=dict(size=9),range=[0,25]),
             yaxis=dict(tickfont=dict(size=10)))
         st.plotly_chart(fig5,use_container_width=True)
