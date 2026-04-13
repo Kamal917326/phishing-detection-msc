@@ -346,7 +346,7 @@ def threat_intelligence_tab():
             legend=dict(orientation='h',y=-0.18,font=dict(size=10),bgcolor='rgba(0,0,0,0)'),
             yaxis=dict(gridcolor='#2d3250',tickformat=',.0f',tickfont=dict(size=9)),
             yaxis2=dict(overlaying='y',side='right',showgrid=False,tickfont=dict(size=9,color='#f59e0b')),
-            xaxis=dict(gridcolor='#2d3250',tickfont=dict(size=10)),bargap=0.35,showlegend=True)
+            xaxis=dict(gridcolor='#2d3250',tickfont=dict(size=10)),bargap=0.35)
         st.plotly_chart(fig,use_container_width=True)
     with c2:
         st.markdown('<div style="color:#e2e8f0;font-size:0.93rem;font-weight:600;margin-bottom:6px;">Monthly trend 2024</div>',unsafe_allow_html=True)
