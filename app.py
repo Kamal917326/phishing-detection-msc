@@ -405,7 +405,7 @@ def threat_intelligence_tab():
         fig6.update_layout(**PLOT_LAYOUT,height=250,
             yaxis=dict(gridcolor='#2d3250',ticksuffix='%',tickfont=dict(size=9),range=[0,80]),
             xaxis=dict(tickfont=dict(size=9.5)))
-         st.plotly_chart(fig6,use_container_width=True,key="ti_delivery_vectors")
+        st.plotly_chart(fig6,use_container_width=True,key="ti_delivery_vectors")
     with c8:
         st.markdown('<div style="color:#e2e8f0;font-size:0.93rem;font-weight:600;margin-bottom:6px;">Phishing site active lifespan</div>',unsafe_allow_html=True)
         fig7=go.Figure(go.Bar(x=lifespan_labels,y=lifespan_vals,marker_color=lifespan_colors,marker_line_width=0,text=[f'{v}%' for v in lifespan_vals],textposition='outside',textfont=dict(size=9.5,color='#cbd5e1'),hovertemplate='%{x}: %{y}%<extra></extra>'))
