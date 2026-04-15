@@ -1,0 +1,4 @@
+Model,Primary F1 (%),Cross F1 (%),F1 Drop (%)
+Random Forest,99.69,99.65,0.04
+XGBoost,99.81,99.77,0.04
+Stacking Ensemble,99.82,99.76,0.06

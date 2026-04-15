@@ -1,0 +1,4 @@
+,CV Acc mean (%),CV Acc std,CV F1 mean (%),CV F1 std,CV AUC mean (%),CV AUC std
+Random Forest,99.35,0.15,99.66,0.08,99.86,0.04
+XGBoost,99.6,0.12,99.79,0.06,99.92,0.03
+Stacking Ensemble,99.51,0.13,99.75,0.06,99.91,0.04

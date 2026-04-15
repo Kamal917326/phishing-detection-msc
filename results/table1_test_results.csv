@@ -1,0 +1,4 @@
+Model,Accuracy (%),Precision (%),Recall (%),F1-Score (%),AUC-ROC (%),MCC,Train Time (s)
+Random Forest,99.4,99.92,99.46,99.69,99.87,0.9098,25.39
+XGBoost,99.63,99.98,99.64,99.81,99.94,0.9436,2.64
+Stacking Ensemble,99.65,99.97,99.67,99.82,99.92,0.9453,49.47
